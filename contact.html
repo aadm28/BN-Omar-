@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>تواصل معنا</title>
+  <meta name="description" content="تواصل مع المهندس آدم بن عمر — البريد الإلكتروني والهاتف وروابط التواصل السريع." />
+  <link rel="canonical" href="contact.html" />
+  <meta property="og:title" content="تواصل مع المهندس آدم بن عمر" />
+  <meta property="og:description" content="تواصل عبر البريد والهاتف والواتساب للخدمات الهندسية وشاشات LED." />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="assets/style.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta http-equiv="Cache-Control" content="public, max-age=31536000">
+</head>
+<body>
+  <!-- Loading overlay -->
+  <a class="skip-link" href="#main">تخطي إلى المحتوى</a>
+  <div id="site-loader" class="site-loader" aria-hidden="true">
+    <div class="loader-circle"></div>
+  </div>
+
+  <div class="container card">
+    <header class="header">
+      <div class="brand">
+        <div class="logo">AO</div>
+        <div class="title">
+          <h1>تواصل معنا</h1>
+          <p>نتواصل معك بسرعة واحترافية</p>
+        </div>
+      </div>
+
+      <button class="menu-toggle" id="menuToggle" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle menu">☰</button>
+
+      <nav class="nav" id="mainNav" role="navigation" aria-label="Main Navigation">
+        <a class="btn" href="index.html">الرئيسية</a>
+        <a class="btn" href="index.html#services">الخدمات</a>
+        <a class="btn" href="gallery.html">المعرض</a>
+        <a class="btn btn-primary" href="contact.html">تواصل</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="card">
+        <h2>تواصل معي</h2>
+        <p><strong>📧 البريد الإلكتروني:</strong></p>
+        <p style="color: #ffd700;"><a href="mailto:aadm28285@gmail.com">aadm28285@gmail.com</a></p>
+        <p style="margin-top: 16px;"><strong>📱 الهاتف:</strong></p>
+        <p style="color: #ffd700;"><a href="tel:+967771199341">771199341</a> — <a href="tel:+967730044892">730044892</a></p>
+        <p style="margin-top: 16px;"><strong>🔗 فيسبوك:</strong></p>
+        <p><a href="https://www.facebook.com/share/1BRc89RySc/" target="_blank" rel="noopener noreferrer" style="color: #ffd700;">زيارة الصفحة</a></p>
+        <div style="margin-top: 24px;">
+          <a class="btn btn-primary" href="https://wa.me/967771199341?text=مرحبًا%2C%20أود%20التواصل%20مع%20المهندس%20آدم%20بن%20عمر." target="_blank" rel="noopener noreferrer">تواصل على واتساب</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer card">
+      <div>© 2025 المهندس آدم بن عمر — جميع الحقوق محفوظة.</div>
+    </footer>
+  </div>
+
+<script>
+  // Hide loader after page load
+  window.addEventListener('load', () => {
+    const loader = document.getElementById('site-loader');
+    if (loader) {
+      setTimeout(() => {
+        loader.style.opacity = '0';
+        loader.style.transition = 'opacity 300ms ease';
+        setTimeout(() => loader.remove(), 350);
+      }, 500);
+    }
+  });
+
+  // Mobile menu toggle (safe: only runs if elements exist)
+  (function() {
+    const menuToggle = document.getElementById('menuToggle');
+    const mainNav = document.getElementById('mainNav');
+    if (!menuToggle || !mainNav) return;
+
+    // ensure aria-expanded reflects the current state
+    menuToggle.setAttribute('aria-expanded', mainNav.classList.contains('show') ? 'true' : 'false');
+
+    menuToggle.addEventListener('click', () => {
+      const showing = mainNav.classList.toggle('show');
+      menuToggle.setAttribute('aria-expanded', showing ? 'true' : 'false');
+    });
+  })();
+</script>
+
+<script>
+// Ensure any remaining images use native lazy-loading (fallback)
+document.querySelectorAll('img').forEach(img => { if(!img.hasAttribute('loading')) img.loading = 'lazy'; });
+</script>
+
+</body>
+</html>

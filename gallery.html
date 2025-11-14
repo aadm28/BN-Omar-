@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>معرض الأعمال - المهندس آدم بن عمر</title>
+  <meta name="description" content="معرض شامل لأعمال المهندس آدم بن عمر في التركيبات الكهربائية وتركيب شاشات LED والمشاريع المختلفة." />
+  <link rel="canonical" href="gallery.html" />
+  <meta property="og:title" content="معرض أعمال المهندس آدم بن عمر" />
+  <meta property="og:description" content="عرض شامل لـ 160 مشروع وعمل هندسي متنوع في مجال الكهرباء وشاشات LED." />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="assets/style.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta http-equiv="Cache-Control" content="public, max-age=31536000">
+  <style>
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+      margin: 24px 0;
+    }
+    .gallery-item {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .gallery-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-item-info {
+      padding: 16px;
+    }
+    .gallery-item-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin: 0 0 8px 0;
+      font-family: 'Cairo', sans-serif;
+    }
+    .gallery-item-description {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.5;
+      font-family: 'Cairo', sans-serif;
+    }
+    .gallery-counter {
+      color: #ffd700;
+      font-weight: 600;
+      font-size: 12px;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Loading overlay -->
+  <a class="skip-link" href="#gallery">تخطي إلى المعرض</a>
+  <div id="site-loader" class="site-loader" aria-hidden="true">
+    <div class="loader-circle"></div>
+  </div>
+
+  <div class="container card" id="site">
+    <header class="header">
+      <div class="brand">
+        <div class="logo">AO</div>
+        <div class="title">
+          <h1>معرض الأعمال</h1>
+          <p>160 مشروع هندسي متنوع وموثق بصور احترافية</p>
+        </div>
+      </div>
+
+      <button class="menu-toggle" id="menuToggle" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle menu">☰</button>
+
+      <nav class="nav" id="mainNav" role="navigation" aria-label="Main Navigation">
+        <a class="btn" href="index.html">الرئيسية</a>
+        <a class="btn" href="index.html#services">الخدمات</a>
+        <a class="btn btn-primary" href="gallery.html">المعرض</a>
+        <a class="btn" href="contact.html">تواصل</a>
+      </nav>
+    </header>
+
+    <section class="gallery" id="gallery">
+      <h2 style="text-align: center; margin: 24px 0; font-size: 28px; color: #1a1a1a; font-family: 'Cairo', sans-serif;">معرض الأعمال الكامل</h2>
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- سيتم ملء الصور تلقائيًا بواسطة JavaScript -->
+      </div>
+    </section>
+
+    <footer class="footer card">
+      <div>© 2025 المهندس آدم بن عمر — جميع الحقوق محفوظة.</div>
+    </footer>
+  </div>
+
+<script>
+  // إنشء معرض الصور من 1 إلى 160
+  const galleryGrid = document.getElementById('galleryGrid');
+  const totalImages = 160;
+  
+  const descriptions = {
+    1: 'لوحة كهربائية رئيسية - تركيبات كهربائية احترافية',
+    2: 'شاشة LED عملاقة - عالية الدقة والأداء',
+    3: 'تمديدات كهربائية داخلية - للمباني والمصانع',
+    4: 'تصميم إعلاني بخلفية كهربائية مع شعار المؤسسة وإضاءة قوية تعكس الهوية الاحترافية',
+    5: 'تصميم دعائي يعرض مجموعة مشاريع كهربائية منجزة مع إبراز الشعار بشكل واضح وفخم',
+    6: 'وحدة بطاريات طاقة احتياطية (UPS) مرتّبة داخل رف مع لمبات تشغيل خضراء تشير لجاهزية النظام',
+    7: 'لوحة كهربائية صغيرة تضم قواطع وأنظمة حماية مع أسلاك مرتبة داخل صندوق شفاف',
+    8: 'جهاز كهربائي مثبت على هيكل معدني متصل بعدة أسلاك منظمة من الأسفل',
+    9: 'لوحة توزيع مثبتة على جدار داخلي مع توصيلات رئيسية منظمة من الجزء السفلي',
+    10: 'تصميم إضاءة سقف جبسي حلزوني مع إنارة LED مخفية تعطي مظهراً جمالياً وإضاءة ناعمة',
+    11: 'وحدة كهربائية داخل صندوق أبيض مثبت على الجدار مع كوابل ملونة مرتبة احترافياً',
+    12: 'إضاءة داخلية حديثة بسقف جبسي مع توزيع نقاط LED مخفية تمنح مظهراً عصريًا وفخماً',
+    13: 'لوحة كهرباء داخل صندوق برتقالي بقواطع وأنظمة حماية وأسلاك ملونة مركبة احترافياً',
+    14: 'مجموعة بطاريات طاقة احتياطية داخل رف مع نظام تشغيل بإضاءات خضراء توضح السلامة',
+    15: 'صورة لموقع عمل أثناء تركيب لوحة كهربائية توضح الفنيين أثناء تنفيذ المهمة',
+    16: 'شاشة مراقبة مثبتة داخل غرفة كهرباء مع توصيلات واضحة أسفل الجهاز'
+  };
+  
+  // الصور الموجودة حاليًا
+  const existingImages = {
+    1: 'assets/images/1.jpg',
+    2: 'assets/images/2.jpg',
+    3: 'assets/images/3.jpg',
+    4: 'assets/images/p1.jpg',
+    5: 'assets/images/p2.jpg',
+    6: 'assets/images/p3.jpg',
+    7: 'assets/images/p4.jpg',
+    8: 'assets/images/p5.JPG',
+    9: 'assets/images/p6.JPG',
+    10: 'assets/images/p7.JPG',
+    11: 'assets/images/p8.JPG',
+    12: 'assets/images/p9.JPG',
+    13: 'assets/images/p10.JPG',
+    14: 'assets/images/p11.JPG',
+    15: 'assets/images/p12.jpg',
+    16: 'assets/images/p13.jpg',
+    17: 'assets/images/p14.jpg',
+    18: 'assets/images/p15.jpg',
+    19: 'assets/images/p16.jpg',
+  };
+  
+  // دالة للحصول على وصف العمل
+  function getDescription(index) {
+    if (descriptions[index]) {
+      return descriptions[index];
+    }
+    const defaultDescriptions = [
+      'فني يعمل داخل غرفة تحكم كهربائية لتركيب وصيانة لوحات توزيع معدات متقدمة',
+      'لوحة كهربائية داخل جدار المنزل بأسلاك ملونة موزعة بشكل هندسي منظم'
+    ];
+    return defaultDescriptions[(index - 20) % defaultDescriptions.length];
+  }
+  
+  // إنشاء عناصر المعرض
+  for (let i = 1; i <= totalImages; i++) {
+    const item = document.createElement('div');
+    item.className = 'gallery-item';
+    
+    let itemHTML = '';
+    
+    if (existingImages[i]) {
+      // الصور الموجودة - مع عرض الصورة
+      const imagePath = existingImages[i];
+      
+      itemHTML = `
+        <img src="${imagePath}" alt="مشروع رقم ${i} - ${getDescription(i)}" loading="lazy">
+        <div class="gallery-item-info">
+          <h3 class="gallery-item-title">#${i}</h3>
+          <p class="gallery-item-description">${getDescription(i)}</p>
+          <div class="gallery-counter">صورة رقم: ${i} / 160</div>
+        </div>
+      `;
+    } else {
+      // الصور غير الموجودة - بدون صورة (placeholder)
+      itemHTML = `
+        <div style="width: 100%; height: 280px; background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%); display: flex; align-items: center; justify-content: center; color: #999;">
+          <div style="text-align: center;">
+            <div style="font-size: 48px; margin-bottom: 8px;">📷</div>
+            <div style="font-size: 12px;">قريباً</div>
+          </div>
+        </div>
+        <div class="gallery-item-info">
+          <h3 class="gallery-item-title">#${i}</h3>
+          <p class="gallery-item-description">${getDescription(i)}</p>
+          <div class="gallery-counter" style="color: #aaa;">قيد الإضافة: ${i} / 160</div>
+        </div>
+      `;
+    }
+    
+    item.innerHTML = itemHTML;
+    galleryGrid.appendChild(item);
+  }
+
+  // إخفاء محمل التحميل بعد تحميل الصفحة
+  window.addEventListener('load', () => {
+    const loader = document.getElementById('site-loader');
+    if (loader) {
+      setTimeout(() => {
+        loader.style.opacity = '0';
+        loader.style.transition = 'opacity 300ms ease';
+        setTimeout(() => loader.remove(), 350);
+      }, 500);
+    }
+  });
+
+  // تبديل القائمة على الهاتف
+  (function() {
+    const menuToggle = document.getElementById('menuToggle');
+    const mainNav = document.getElementById('mainNav');
+    if (!menuToggle || !mainNav) return;
+
+    menuToggle.setAttribute('aria-expanded', mainNav.classList.contains('show') ? 'true' : 'false');
+
+    menuToggle.addEventListener('click', () => {
+      const showing = mainNav.classList.toggle('show');
+      menuToggle.setAttribute('aria-expanded', showing ? 'true' : 'false');
+    });
+  })();
+</script>
+
+<script>
+  // تحميل الصور بطريقة كسول (lazy loading)
+  document.querySelectorAll('img').forEach(img => { 
+    if(!img.hasAttribute('loading')) img.loading = 'lazy'; 
+  });
+</script>
+
+</body>
+</html>
